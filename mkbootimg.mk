@@ -22,6 +22,11 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
 		$(recovery_ramdisk) \
 		$(recovery_kernel)
 	@echo -e ${CL_CYN}"----- Making recovery image ------"${CL_RST}
+	$(hide) rm -rf out/target/product/tomato/recovery/root/init
+	$(hide) rm -rf out/target/product/tomato/recovery/init
+	$(hide) cp device/yu/tomato/init out/target/product/tomato/recovery/root/init
+	$(hide) cp device/yu/tomato/init out/target/product/tomato/root/init
+	(cd out/target/product/tomato/recovery/root/ && find * | sort | cpio -o -H newc) | gzip > $(recovery_ramdisk)
 	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(BOARD_MKBOOTIMG_ARGS) --dt $(INSTALLED_DTIMAGE_TARGET) --output $@
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
 	@echo -e ${CL_CYN}"Made recovery image: $@"${CL_RST}

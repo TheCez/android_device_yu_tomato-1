@@ -46,8 +46,3 @@ PRODUCT_GMS_CLIENTID_BASE := android-micromax
 TARGET_VENDOR_PRODUCT_NAME := YUREKA
 TARGET_VENDOR_DEVICE_NAME := YUREKA
 PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=YUREKA PRODUCT_NAME=YUREKA BUILD_FINGERPRINT=yu/tomato/tomato:4.4.4/KTU84P/1227136:user/release-keys PRIVATE_BUILD_DESC="tomato-user 4.4.4 KTU84P 1227136 release-keys"
-
-ifeq ($(SIGN_BUILD),true)
-# Signed builds gets a special boot animation because they are special.
-PRODUCT_BOOTANIMATION := device/yu/tomato/bootanimation.zip
-endif
