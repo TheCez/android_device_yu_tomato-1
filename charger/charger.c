@@ -46,7 +46,7 @@
 #include <suspend/autosuspend.h>
 #endif
 
-#include "minui/minui.h"
+#include "/home/sooraj/Desktop/Slimkat/bootable/recovery/minui/minui.h"
 
 #include <pthread.h>
 #include <linux/android_alarm.h>
