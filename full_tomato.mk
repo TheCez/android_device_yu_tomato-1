@@ -28,7 +28,7 @@ PRODUCT_NAME := full_tomato
 PRODUCT_MANUFACTURER := YU
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on tomato
-PRODUCT_RESTRICT_VENDOR_FILES := true
+PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Inherit from tomato device
 $(call inherit-product, device/yu/tomato/device.mk)
