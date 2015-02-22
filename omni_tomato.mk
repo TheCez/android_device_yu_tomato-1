@@ -20,6 +20,10 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 # Release name
 PRODUCT_RELEASE_NAME := tomato
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
+
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
@@ -29,6 +33,9 @@ $(call inherit-product, device/yu/tomato/full_tomato.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
+# Inherit from tomato device
+$(call inherit-product, device/yu/tomato/device.mk)
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := tomato
 PRODUCT_NAME := omni_tomato
@@ -36,8 +43,7 @@ PRODUCT_MANUFACTURER := YU
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AO5510
 
-# Inherit from tomato device
-$(call inherit-product, device/yu/tomato/device.mk)
+
 $(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
 
 PRODUCT_GMS_CLIENTID_BASE := android-micromax
