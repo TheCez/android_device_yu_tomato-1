@@ -14,22 +14,31 @@
 # limitations under the License.
 #
 
+## Specify phone tech before including full_phone
+$(call inherit-product, vendor/omni/config/gsm.mk)
 
-# Get the long list of APNs
-PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+# Release name
+PRODUCT_RELEASE_NAME := tomato
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := tomato
-PRODUCT_NAME := full_tomato
+PRODUCT_NAME := omni_tomato
 PRODUCT_MANUFACTURER := YU
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP on tomato
-PRODUCT_RESTRICT_VENDOR_FILES := true
+PRODUCT_MODEL := AO5510
 
 # Inherit from tomato device
 $(call inherit-product, device/yu/tomato/device.mk)
 $(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
+
+PRODUCT_GMS_CLIENTID_BASE := android-micromax
+
+TARGET_VENDOR_PRODUCT_NAME := YUREKA
+TARGET_VENDOR_DEVICE_NAME := YUREKA
+PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=YUREKA PRODUCT_NAME=YUREKA BUILD_FINGERPRINT=yu/tomato/tomato:4.4.4/KTU84P/1227136:user/release-keys PRIVATE_BUILD_DESC="tomato-user 4.4.4 KTU84P 1227136 release-keys"
