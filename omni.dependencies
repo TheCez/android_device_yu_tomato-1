@@ -20,7 +20,7 @@
     "target_path": "frameworks/opt/connectivity"
   },
   {
-    "repository": "android_device_qcom_common",
+    "repository": "CyanogenMod/android_device_qcom_common",
     "target_path": "device/qcom/common"
   }
 ]
