@@ -51,9 +51,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
 
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/phone-hdpi-2048-dalvik-heap.mk)
@@ -254,7 +251,11 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     libwcnss_qmi \
-    wcnss_service
+    wcnss_service \
+    libwpa_client \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # Development settings
 ADDITIONAL_DEFAULT_PROPERTIES += \

@@ -14,16 +14,22 @@
 # limitations under the License.
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from tomato device
-$(call inherit-product, device/yu/tomato/device.mk)
+# Get the long list of APNs
+PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := tomato
 PRODUCT_NAME := full_tomato
-PRODUCT_BRAND := YU
-PRODUCT_MODEL := YUREKA
-PRODUCT_MODEL := AO5510
 PRODUCT_MANUFACTURER := YU
+PRODUCT_BRAND := Android
+PRODUCT_MODEL := AOSP on tomato
+PRODUCT_RESTRICT_VENDOR_FILES := false
+
+# Inherit from tomato device
+$(call inherit-product, device/yu/tomato/device.mk)
+$(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
