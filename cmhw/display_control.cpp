@@ -70,13 +70,13 @@ static int getMode()
 extern "C" {
 #endif
 
-JNIEXPORT jint JNICALL Java_org_cyanogenmod_hardware_AdaptiveBacklight_native_1getCABCLevel(
+JNIEXPORT jint JNICALL Java_org_mokee_hardware_AdaptiveBacklight_native_1getCABCLevel(
         JNIEnv* env, jclass thiz)
 {
     return (jint)(getMode() & CABC_MOVING) == CABC_MOVING ? 3 : 0;
 }
 
-JNIEXPORT jint JNICALL Java_org_cyanogenmod_hardware_AdaptiveBacklight_native_1setCABCLevel(
+JNIEXPORT jint JNICALL Java_org_mokee_hardware_AdaptiveBacklight_native_1setCABCLevel(
         JNIEnv* env, jclass thiz, jint value)
 {
     int cmd = CE_SET_CABC_OFF;
@@ -104,7 +104,7 @@ JNIEXPORT jint JNICALL Java_org_cyanogenmod_hardware_AdaptiveBacklight_native_1s
     return (jint)sendCommand(cmd, NULL);
 }
 
-JNIEXPORT jint JNICALL Java_org_cyanogenmod_hardware_ColorEnhancement_native_1getCELevel(
+JNIEXPORT jint JNICALL Java_org_mokee_hardware_ColorEnhancement_native_1getCELevel(
         JNIEnv* env, jclass thiz)
 {
     int level = 0;
@@ -120,7 +120,7 @@ JNIEXPORT jint JNICALL Java_org_cyanogenmod_hardware_ColorEnhancement_native_1ge
     return (jint)level;
 }
 
-JNIEXPORT jint JNICALL Java_org_cyanogenmod_hardware_ColorEnhancement_native_1setCELevel(
+JNIEXPORT jint JNICALL Java_org_mokee_hardware_ColorEnhancement_native_1setCELevel(
         JNIEnv* env, jclass thiz, jint value)
 {
     int level = int(value);
