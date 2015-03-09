@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-## Specify phone tech before including full_phone
-$(call inherit-product, vendor/slim/config/gsm.mk)
-
 # Release name
 PRODUCT_RELEASE_NAME := tomato
 
@@ -25,16 +22,13 @@ TARGET_SCREEN_WIDTH := 720
 # Inherit device configuration
 $(call inherit-product, device/yu/tomato/full_tomato.mk)
 
-# Inherit some common Slim stuff.
-$(call inherit-product, vendor/slim/config/common_full_phone.mk)
-
-# Enhanced NFC
-$(call inherit-product, vendor/slim/config/nfc_enhanced.mk)
+# Inherit some common eos stuff.
+$(call inherit-product, vendor/eos/config/common_full_phone.mk)
 
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := tomato
-PRODUCT_NAME := slim_tomato
+PRODUCT_NAME := eos_tomato
 PRODUCT_BRAND := YU
 PRODUCT_MODEL := A05510
 PRODUCT_MANUFACTURER := YU
