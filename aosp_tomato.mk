@@ -15,6 +15,10 @@
 #
 $(call inherit-product, device/yu/tomato/full_tomato.mk)
 
+# Inherit from tomato device
+$(call inherit-product, device/yu/tomato/device.mk)
+$(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
+
 PRODUCT_NAME := aosp_tomato
 
 PRODUCT_PACKAGES += \
